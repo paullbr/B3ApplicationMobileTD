@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<h1>{{app.nom}} {{app.version}}</h1>
+
+<ion-item>
+    <ion-label floating>Titre</ion-label>
+    <ion-input type="text" [(ngModel)]="app.nom"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floating>Version</ion-label>
+      <ion-input type="number" [(ngModel)]="app.version"></ion-input>
+  </ion-item>
+
+    <button ion-button (click)='functionplus();'>Version up</button>
+    <button ion-button (click)='functionmoins();'>Version down</button>
+
+    <button ion-button color="danger" round (click)="takePic()">Prendre une photo</button>
+
+
+</ion-content>
