@@ -1,6 +1,6 @@
 
 
-AUBERT Jean-Marc B3 - ingésup
+LOUBLIER Paul B3 - ingésup
 
 
 This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
