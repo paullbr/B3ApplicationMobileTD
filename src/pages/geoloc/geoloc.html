@@ -14,5 +14,11 @@
 
 
 <ion-content padding>
-
+	<h1>Position actuelle</h1>
+	{{lat}} {{lon}}
+	
+	<h1>Watch</h1>
+	<ul>
+		<li *ngFor="let data of position">{{data}}</li>
+	</ul>
 </ion-content>

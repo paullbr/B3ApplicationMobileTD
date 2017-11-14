@@ -15,23 +15,29 @@ import { Geolocation } from '@ionic-native/geolocation';
   templateUrl: 'geoloc.html',
 })
 export class GeolocPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+	lat: any;
+	lon: any;
+	
+	position: Array<string>;
+	
+	
+  constructor(public navCtrl: NavController, public navParams: NavParams, private geolocation: Geolocation) {
+	  this.geolocation.getCurrentPosition().then((resp) => {
+	   	this.lat = resp.coords.latitude
+	   	this.lon = resp.coords.longitude
+	  }).catch((error) => {
+	  console.log('Error getting location', error);
+	  });
+	  
+	 
+	  this.position = new Array();
+	  geolocation.watchPosition().subscribe(pos => {
+		  this.position.push('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+		  console.log('lat: ' + pos.coords.latitude + ', lon: ' + pos.coords.longitude);
+	  })
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GeolocPage');
   }
-
-}
-
-class Geoloc extends Geolocation{
-	constructor(private geolocation: Geolocation) {}
-
-	this.geolocation.getCurrentPosition().then((resp) => {
- 	// resp.coords.latitude
- 	// resp.coords.longitude
-	}).catch((error) => {
-  	console.log('Error getting location', error);
-	});
-
 }
